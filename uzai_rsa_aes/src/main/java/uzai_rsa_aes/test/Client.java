@@ -1,6 +1,7 @@
 package uzai_rsa_aes.test;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 import com.alibaba.fastjson.JSON;
@@ -15,7 +16,9 @@ public class Client {
 	
 	
 
-	public static String client(TreeMap<String, Object> params) throws Exception {
+	public static String client(String jsonMap) throws Exception {
+		Map me = (Map) JSON.parse(jsonMap);
+		TreeMap<String, Object> params = new TreeMap<String,Object>(me);
 		// 生成RSA签名
 		String sign = EncryUtil.handleRSA(params, KEY.ClientPrivateKey);
 		params.put("sign", sign);

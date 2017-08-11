@@ -15,8 +15,5 @@ public class GetKeys {
 		Map<String, String> map = RSA.generateKeyPair();
 		System.out.println("privateKey---" + map.get("privateKey"));
 		System.out.println("publicKey---" + map.get("publicKey"));
-
-		
-
 	}
 }
